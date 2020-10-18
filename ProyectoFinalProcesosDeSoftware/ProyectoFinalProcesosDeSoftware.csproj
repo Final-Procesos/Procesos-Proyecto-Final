@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Doctor.cs" />
     <Compile Include="LocalMethods.cs" />
     <Compile Include="LogIn_Form.cs">
       <SubType>Form</SubType>
@@ -56,6 +57,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Usuario.cs" />
     <EmbeddedResource Include="LogIn_Form.resx">
       <DependentUpon>LogIn_Form.cs</DependentUpon>
     </EmbeddedResource>

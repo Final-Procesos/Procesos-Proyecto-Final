@@ -31,13 +31,31 @@ namespace FinalProjectBank
             }
             else
             {
+                Usuario user = new Usuario();
                 string username = txbUsuario.Text;
                 string contraseña = txbContrasena.Text;
-                bool login;
-                login = localMethods.Login(username, contraseña);
+                bool login = true;
+                user = localMethods.Login(username, contraseña);
+
+                if (string.IsNullOrWhiteSpace(user.Contraseña))
+                {
+                    login = false;
+                }
+
+
                 if (login == true)
                 {
-                    MessageBox.Show("Datos Correctos");
+                    int tipoUsuario = (int)user.GetTipoUsuario();
+                    if(tipoUsuario == 1)
+                    {
+                        MessageBox.Show("Datos Correctos de Doctor");
+
+                    }
+                    else if(tipoUsuario == 2)
+                    {
+                        MessageBox.Show("Datos Correctos de Cajero");
+                    }
+
                 }
                 else
                 {

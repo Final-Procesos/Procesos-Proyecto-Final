@@ -15,15 +15,16 @@ namespace ProyectoFinalProcesosDeSoftware
 
         SqlConnection sql = new SqlConnection(Cn);
 
-        public bool Login(string username, string contraseña)
+        public Usuario Login(string correo, string contraseña)
         {
+            Usuario user = new Usuario();
             bool login_correcto = false;
             string contraseña2 = null;
 
             SqlCommand cmd = new SqlCommand("Verify_Account", sql);
             cmd.CommandType = CommandType.StoredProcedure;
 
-            cmd.Parameters.AddWithValue("@Correo", username);
+            cmd.Parameters.AddWithValue("@Correo", correo);
 
             sql.Open();
             SqlDataReader reader = cmd.ExecuteReader();
@@ -33,26 +34,37 @@ namespace ProyectoFinalProcesosDeSoftware
             if (!rows)
             {
                 sql.Close();
-                return login_correcto;
+                return user;
             }
 
             if (reader.Read())
             {
-                contraseña2 = reader["Contraseña"].ToString();
-            }
+                if (contraseña == reader["Contraseña"].ToString())
+                {
+                    login_correcto = true;
+                    user.Correo = correo;
+                    user.Contraseña = contraseña;
+                    if((int) reader["idTipousuario"] == 1)
+                    {
+                        user.SetTipoUsuario(TipoUsuario.Doctor);
+                    }
+                    else
+                    {
+                        user.SetTipoUsuario(TipoUsuario.Cajero);
+                    }
 
+                    sql.Close();
+                    return user;
+                }
 
-            if (contraseña == contraseña2)
-            {
-                login_correcto = true;
-                sql.Close();
-                return login_correcto;
             }
             else
             {
                 sql.Close();
-                return login_correcto;
+                return user;
             }
+
+            return user;
         }
 
     }
