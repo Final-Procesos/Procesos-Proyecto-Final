@@ -18,8 +18,6 @@ namespace ProyectoFinalProcesosDeSoftware
         public Usuario Login(string correo, string contraseña)
         {
             Usuario user = new Usuario();
-            bool login_correcto = false;
-            string contraseña2 = null;
 
             SqlCommand cmd = new SqlCommand("Verify_Account", sql);
             cmd.CommandType = CommandType.StoredProcedure;
@@ -41,7 +39,6 @@ namespace ProyectoFinalProcesosDeSoftware
             {
                 if (contraseña == reader["Contraseña"].ToString())
                 {
-                    login_correcto = true;
                     user.Correo = correo;
                     user.Contraseña = contraseña;
                     if((int) reader["idTipousuario"] == 1)
@@ -67,7 +64,72 @@ namespace ProyectoFinalProcesosDeSoftware
             return user;
         }
 
+        public Doctor GetDoctorData(Usuario user)
+        {
+            Doctor doctor = new Doctor();
+
+            SqlCommand cmd = new SqlCommand("GetDoctorData", sql);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@Correo", user.Correo);
+
+            sql.Open();
+            SqlDataReader reader = cmd.ExecuteReader();
+
+
+            bool rows = reader.HasRows;
+            if (!rows)
+            {
+                sql.Close();
+                return doctor;
+            }
+
+            if (reader.Read())
+            {
+                doctor.Nombre = reader["Nombre"].ToString();
+                doctor.Apellido = reader["Apellido"].ToString();
+
+
+                sql.Close();
+                return doctor;
+            }
+            return doctor;
+        }
+
+        public Cajero GetCajeroData(Usuario user)
+        {
+            Cajero cajero = new Cajero();
+
+            SqlCommand cmd = new SqlCommand("GetCajeroData", sql);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@Correo", user.Correo);
+
+            sql.Open();
+            SqlDataReader reader = cmd.ExecuteReader();
+
+
+            bool rows = reader.HasRows;
+            if (!rows)
+            {
+                sql.Close();
+                return cajero;
+            }
+
+            if (reader.Read())
+            {
+                cajero.Nombre = reader["Nombre"].ToString();
+                cajero.Apellido = reader["Apellido"].ToString();
+
+
+                sql.Close();
+                return cajero;
+            }
+            return cajero;
+        }
     }
+
+    
 
 
 

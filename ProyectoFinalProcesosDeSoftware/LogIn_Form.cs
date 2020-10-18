@@ -48,12 +48,22 @@ namespace FinalProjectBank
                     int tipoUsuario = (int)user.GetTipoUsuario();
                     if(tipoUsuario == 1)
                     {
-                        MessageBox.Show("Datos Correctos de Doctor");
+                        Doctor doctor = localMethods.GetDoctorData(user);
+                        DoctorMain main = new DoctorMain(doctor, this);
+                        this.Hide();
+                        txbUsuario.Text = null;
+                        txbContrasena.Text = null;
+                        main.Show();
 
                     }
                     else if(tipoUsuario == 2)
                     {
-                        MessageBox.Show("Datos Correctos de Cajero");
+                        Cajero cajero = localMethods.GetCajeroData(user);
+                        CajeroMain main = new CajeroMain(cajero, this);
+                        this.Hide();
+                        txbUsuario.Text = null;
+                        txbContrasena.Text = null;
+                        main.Show();
                     }
 
                 }
