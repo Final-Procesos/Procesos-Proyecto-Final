@@ -1,5 +1,4 @@
-﻿using log4net;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -11,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Security.Cryptography;
 using System.Configuration;
+using ProyectoFinalProcesosDeSoftware;
 
 namespace FinalProjectBank
 {
@@ -32,14 +32,12 @@ namespace FinalProjectBank
             else
             {
                 string username = txbUsuario.Text;
-                string contraseña = localMethods.Encrypt(txbContrasena.Text);
+                string contraseña = txbContrasena.Text;
                 bool login;
                 login = localMethods.Login(username, contraseña);
                 if (login == true)
                 {
-                    AdministradorDashboard_Home dashboard = new AdministradorDashboard_Home();
-                    this.Hide();
-                    dashboard.Show();
+                    MessageBox.Show("Datos Correctos");
                 }
                 else
                 {
