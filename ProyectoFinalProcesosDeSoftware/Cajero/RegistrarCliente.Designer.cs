@@ -169,6 +169,7 @@
             this.btn_RegistrarCliente.TabIndex = 12;
             this.btn_RegistrarCliente.Text = "Registrar Cliente";
             this.btn_RegistrarCliente.UseVisualStyleBackColor = true;
+            this.btn_RegistrarCliente.Click += new System.EventHandler(this.btn_RegistrarCliente_Click);
             // 
             // btn_Cancelar
             // 
@@ -200,6 +201,7 @@
             this.Controls.Add(this.lbl_Cedula);
             this.Controls.Add(this.lbl_Apellido);
             this.Controls.Add(this.lbl_Nombre);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.MaximizeBox = false;
             this.Name = "RegistrarCliente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

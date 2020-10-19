@@ -130,7 +130,7 @@
             this.Controls.Add(this.txbContrasena);
             this.Controls.Add(this.txbUsuario);
             this.Controls.Add(this.btnLogIn);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form_LogIn";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

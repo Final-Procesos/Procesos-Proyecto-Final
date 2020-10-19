@@ -46,7 +46,7 @@
             // btn_Logout
             // 
             this.btn_Logout.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.btn_Logout.Location = new System.Drawing.Point(531, 53);
+            this.btn_Logout.Location = new System.Drawing.Point(516, 53);
             this.btn_Logout.Name = "btn_Logout";
             this.btn_Logout.Size = new System.Drawing.Size(123, 30);
             this.btn_Logout.TabIndex = 3;
@@ -73,6 +73,7 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btn_Logout);
             this.Controls.Add(this.label_CajeroMain);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "CajeroMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CajeroMain";

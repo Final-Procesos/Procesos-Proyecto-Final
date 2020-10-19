@@ -35,8 +35,8 @@ namespace ProyectoFinalProcesosDeSoftware
 
         private void button1_Click(object sender, EventArgs e)
         {
-            RegistrarCliente regcliente = new RegistrarCliente(this);
-            this.Hide();
+            RegistrarCliente regcliente = new RegistrarCliente(this, cajero);
+            this.Hide(); 
             regcliente.Show();
 
         }

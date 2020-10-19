@@ -59,6 +59,7 @@
             this.ClientSize = new System.Drawing.Size(651, 554);
             this.Controls.Add(this.btn_Logout);
             this.Controls.Add(this.label_DoctorMain);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "DoctorMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DoctorMain";
