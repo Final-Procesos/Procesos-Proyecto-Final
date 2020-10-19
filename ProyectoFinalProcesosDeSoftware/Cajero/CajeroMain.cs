@@ -24,8 +24,21 @@ namespace ProyectoFinalProcesosDeSoftware
 
         private void btn_Logout_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Hide();
             login.Show();
+        }
+
+        private void CajeroMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            RegistrarCliente regcliente = new RegistrarCliente(this);
+            this.Hide();
+            regcliente.Show();
+
         }
     }
 }
