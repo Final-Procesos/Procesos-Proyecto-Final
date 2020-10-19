@@ -33,5 +33,12 @@ namespace ProyectoFinalProcesosDeSoftware
             this.Hide();
             login.Show();
         }
+
+        private void btn_RegistrarResultados_Click(object sender, EventArgs e)
+        {
+            RegistrarResultados registrarResultados = new RegistrarResultados(this, doctor);
+            this.Hide();
+            registrarResultados.Show();
+        }
     }
 }

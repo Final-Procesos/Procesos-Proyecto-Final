@@ -68,6 +68,12 @@
     <Compile Include="Doctor\DoctorMain.Designer.cs">
       <DependentUpon>DoctorMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="Doctor\RegistrarResultados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Doctor\RegistrarResultados.Designer.cs">
+      <DependentUpon>RegistrarResultados.cs</DependentUpon>
+    </Compile>
     <Compile Include="LocalMethods.cs" />
     <Compile Include="LogIn_Form.cs">
       <SubType>Form</SubType>
@@ -86,6 +92,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Doctor\DoctorMain.resx">
       <DependentUpon>DoctorMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Doctor\RegistrarResultados.resx">
+      <DependentUpon>RegistrarResultados.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LogIn_Form.resx">
       <DependentUpon>LogIn_Form.cs</DependentUpon>

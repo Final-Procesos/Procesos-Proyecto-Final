@@ -127,6 +127,37 @@ namespace ProyectoFinalProcesosDeSoftware
             }
             return cajero;
         }
+
+        public Cliente GetClienteoData(string cedula)
+        {
+            Cliente cliente = new Cliente();
+
+            SqlCommand cmd = new SqlCommand("GetClienteData", sql);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@Cedula", cedula);
+
+            sql.Open();
+            SqlDataReader reader = cmd.ExecuteReader();
+
+
+            bool rows = reader.HasRows;
+            if (!rows)
+            {
+                sql.Close();
+                return cliente;
+            }
+
+            if (reader.Read())
+            {
+                cliente.Nombre = reader["Nombre"].ToString();
+                cliente.Apellido = reader["Apellido"].ToString();
+
+                sql.Close();
+                return cliente;
+            }
+            return cliente;
+        }
     }
 
     
