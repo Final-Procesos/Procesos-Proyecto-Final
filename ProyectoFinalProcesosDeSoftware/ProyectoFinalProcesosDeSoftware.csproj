@@ -61,11 +61,11 @@
       <DependentUpon>RegistrarCliente.cs</DependentUpon>
     </Compile>
     <Compile Include="Cliente.cs" />
-    <Compile Include="Doctor.cs" />
-    <Compile Include="DoctorMain.cs">
+    <Compile Include="Doctor\Doctor.cs" />
+    <Compile Include="Doctor\DoctorMain.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DoctorMain.Designer.cs">
+    <Compile Include="Doctor\DoctorMain.Designer.cs">
       <DependentUpon>DoctorMain.cs</DependentUpon>
     </Compile>
     <Compile Include="LocalMethods.cs" />
@@ -84,7 +84,7 @@
     <EmbeddedResource Include="Cajero\RegistrarCliente.resx">
       <DependentUpon>RegistrarCliente.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DoctorMain.resx">
+    <EmbeddedResource Include="Doctor\DoctorMain.resx">
       <DependentUpon>DoctorMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LogIn_Form.resx">

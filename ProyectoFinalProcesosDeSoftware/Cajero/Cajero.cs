@@ -18,7 +18,6 @@ namespace ProyectoFinalProcesosDeSoftware
 
         private string nombre;
         private string apellido;
-        private object user;
 
         public string Nombre
         {
@@ -43,8 +42,10 @@ namespace ProyectoFinalProcesosDeSoftware
             cmd.Parameters.AddWithValue("@Cedula", cliente.Cedula);
             cmd.Parameters.AddWithValue("@Seguro", cliente.Seguro);
             cmd.Parameters.AddWithValue("@Telefono", cliente.Telefono);
+            cmd.Parameters.AddWithValue("@NombreCajero", this.Nombre);
+            cmd.Parameters.AddWithValue("@ApellidoCajero", this.Apellido);
 
-            
+
             sql.Open();
             SqlDataReader reader = cmd.ExecuteReader();
             if (reader.Read())
