@@ -40,5 +40,12 @@ namespace ProyectoFinalProcesosDeSoftware
             this.Hide();
             registrarResultados.Show();
         }
+
+        private void btn_ConsultarResultados_Click(object sender, EventArgs e)
+        {
+            ConsultarResultados consultarResultados = new ConsultarResultados(this);
+            this.Hide();
+            consultarResultados.Show();
+        }
     }
 }

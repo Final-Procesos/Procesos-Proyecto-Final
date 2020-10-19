@@ -74,6 +74,7 @@
             this.btn_ConsultarResultados.TabIndex = 4;
             this.btn_ConsultarResultados.Text = "Consultar Resultados";
             this.btn_ConsultarResultados.UseVisualStyleBackColor = true;
+            this.btn_ConsultarResultados.Click += new System.EventHandler(this.btn_ConsultarResultados_Click);
             // 
             // DoctorMain
             // 

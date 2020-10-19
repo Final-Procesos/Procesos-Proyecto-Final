@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lbl_RegistrarResultados = new System.Windows.Forms.Label();
             this.btn_RegistrarResultado = new System.Windows.Forms.Button();
             this.btn_Cancelar = new System.Windows.Forms.Button();
@@ -43,6 +44,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.lblTipoMuestra = new System.Windows.Forms.Label();
             this.cmbox_TipoMuestra = new System.Windows.Forms.ComboBox();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.SuspendLayout();
             // 
             // lbl_RegistrarResultados
@@ -212,6 +214,11 @@
             this.cmbox_TipoMuestra.Size = new System.Drawing.Size(299, 24);
             this.cmbox_TipoMuestra.TabIndex = 14;
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
             // RegistrarResultados
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -258,5 +265,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblTipoMuestra;
         private System.Windows.Forms.ComboBox cmbox_TipoMuestra;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
     }
 }

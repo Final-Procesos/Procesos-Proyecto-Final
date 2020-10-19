@@ -159,6 +159,43 @@ namespace ProyectoFinalProcesosDeSoftware
             }
             return cliente;
         }
+
+        public List<Dictionary<string,string>> GetDataGridInformation(string cedula)
+        {
+            List<Dictionary<string,string>> info = new List<Dictionary<string,string>>();
+
+            SqlCommand cmd = new SqlCommand("GetDataGridInformation", sql);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@Cedula", cedula);
+
+            sql.Open();
+            SqlDataReader reader = cmd.ExecuteReader();
+
+
+            bool rows = reader.HasRows;
+            if (!rows)
+            {
+                sql.Close();
+                return info;
+            }
+
+            while(reader.Read())
+            {
+                Dictionary<string, string> tempdic = new Dictionary<string, string>
+                {
+                    {"Doctor", reader["NombreDoctor"].ToString() + " " + reader["ApellidoDoctor"].ToString()},
+                    {"Paciente",reader["NombreCliente"].ToString() + " " + reader["ApellidoCliente"].ToString() },
+                    {"TipoMuestra", reader["TipoMuestra"].ToString() },
+                    {"Resultado", reader["Resultados"].ToString() }
+                };
+                info.Add(tempdic);
+            }
+            sql.Close();
+
+            return info;
+
+        }
     }
 
     
