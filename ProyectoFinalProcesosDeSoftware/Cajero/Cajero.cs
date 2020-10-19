@@ -44,7 +44,18 @@ namespace ProyectoFinalProcesosDeSoftware
             cmd.Parameters.AddWithValue("@Seguro", cliente.Seguro);
             cmd.Parameters.AddWithValue("@Telefono", cliente.Telefono);
 
+            
             sql.Open();
+            SqlDataReader reader = cmd.ExecuteReader();
+            if (reader.Read())
+            {
+                
+                string resultado =  reader["Resultado"].ToString();
+                sql.Close();
+                return resultado;
+
+            }
+            reader.Close();
             cmd.ExecuteNonQuery();
             sql.Close();
 
