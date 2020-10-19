@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
@@ -31,33 +32,22 @@ namespace ProyectoFinalProcesosDeSoftware
             set { apellido = value; }
         }
 
-        public string RegistrarResultado(Cliente cliente, string resultado)
+        public string RegistrarResultado(Cliente cliente, string resultado_Muestra, int tipoMuestra)
         {
-            SqlCommand cmd = new SqlCommand("RegistrarCliente", sql);
+            SqlCommand cmd = new SqlCommand("RegistrarResultado", sql);
             cmd.CommandType = CommandType.StoredProcedure;
-
-            cmd.Parameters.AddWithValue("@Nombre", cliente.Nombre);
-            cmd.Parameters.AddWithValue("@Apellido", cliente.Apellido);
-            cmd.Parameters.AddWithValue("@Resultado", resultado);
+            
+            cmd.Parameters.AddWithValue("@Cedula", cliente.Cedula);
+            cmd.Parameters.AddWithValue("@Resultado", resultado_Muestra);
+            cmd.Parameters.AddWithValue("@idTipoMuestra", tipoMuestra);
             cmd.Parameters.AddWithValue("@NombreDoctor", this.Nombre);
             cmd.Parameters.AddWithValue("@ApellidoDoctor", this.Apellido);
 
 
             sql.Open();
-            SqlDataReader reader = cmd.ExecuteReader();
-            if (reader.Read())
-            {
-
-                string resultado = reader["Resultado"].ToString();
-                sql.Close();
-                return resultado;
-
-            }
-            reader.Close();
             cmd.ExecuteNonQuery();
             sql.Close();
 
-            return "Cliente creado con exito";
             return "El resultado de la muestra ha sido registrado correctamente";
 
         }

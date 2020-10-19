@@ -152,6 +152,7 @@ namespace ProyectoFinalProcesosDeSoftware
             {
                 cliente.Nombre = reader["Nombre"].ToString();
                 cliente.Apellido = reader["Apellido"].ToString();
+                cliente.Cedula = reader["Cedula"].ToString();
 
                 sql.Close();
                 return cliente;

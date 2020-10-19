@@ -26,7 +26,8 @@ namespace ProyectoFinalProcesosDeSoftware
 
         private void btn_RegistrarResultado_Click(object sender, EventArgs e)
         {
-            
+            int tipoMuestra = cmbox_TipoMuestra.SelectedIndex + 1;
+            MessageBox.Show(doctor.RegistrarResultado(cliente, txtResultado.Text, tipoMuestra));
             this.Close();
         }
 
@@ -81,7 +82,7 @@ namespace ProyectoFinalProcesosDeSoftware
         {
             btn_RegistrarResultado.Enabled = false;
             txtResultado.Enabled = false;
-            cmbox_TipoMuestra.Enabled = true;
+            cmbox_TipoMuestra.Enabled = false;
             lbl_PacienteEncontrado.Hide();
             lblApellido.Hide();
             lbl_NombrePaciente.Hide();
